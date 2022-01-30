@@ -35,6 +35,7 @@ public class variables : MonoBehaviour //"variables" needs to be the same name a
         }
         if (isDay){
             Debug.Log("It is daytime!");
+            Debug.Log("water remaining: " + waterBottle);
             isDay = false;
         }
     }
