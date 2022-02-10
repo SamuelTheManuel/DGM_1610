@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 66917793}
   - component: {fileID: 66917796}
   - component: {fileID: 66917797}
+  - component: {fileID: 66917798}
   m_Layer: 0
   m_Name: truck
   m_TagString: Untagged
@@ -252,6 +253,21 @@ MonoBehaviour:
   turnSpeed: 10
   hInput: 0
   fInput: 0
+--- !u!114 &66917798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66917791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38e970fe31e44b49966270d7f0b99b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberA: 10
+  numberB: 123
+  numberC: 432
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
