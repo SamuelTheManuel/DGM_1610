@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 95198165}
   - component: {fileID: 95198164}
   - component: {fileID: 95198163}
+  - component: {fileID: 95198166}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -316,6 +317,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95198166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95198162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5725129dd3e0b409f24f40a7ae16dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friendNames:
+  - BOB
+  - Jim
+  - Sam
+  - Jill
+  - Homer
+  arr1: 0100000004000000050000000600000007000000
+  arr2: 040000000100000005000000
+  arr3: d20400002d00000059010000
+  arr4:
+  - 12.3
+  - 435.5
+  - 546.43
+  lastNames:
+  - Smith
+  - Jones
+  - Williams
+  arr7: 7b0000005901000059010000a1ad0b00
+  arr8:
+  - 54445544
+  - 456567.34
+  arr9: 373000002b0000008c020000ea000000
+  arr10: 2d1600000eda0900
 --- !u!1 &115082895 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4433227118716605594, guid: e2b5e2a07897f954bb16656c31a2bfd3, type: 3}
@@ -982,7 +1018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -464.8941, y: -327.39212}
+  m_AnchoredPosition: {x: -218.4, y: -222.1}
   m_SizeDelta: {x: 539.2118, y: 56.7842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1564864583
