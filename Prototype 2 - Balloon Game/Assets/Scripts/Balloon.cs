@@ -13,13 +13,17 @@ public class Balloon : MonoBehaviour
     public ScoreManager scoreManager; // a variable to reference the ScoreManager
     void Start()
     {
-        
+        //reference ScoreManager component
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.transform.position.y < -4) {
+            scoreManager.DecreaseScoreText(ScoreToGive);
+            Destroy(gameObject);
+        }
     }
     void OnMouseDown() {
         //reduce clicks by 1
@@ -27,9 +31,8 @@ public class Balloon : MonoBehaviour
         //change the scale
         transform.localScale += Vector3.one * scaleToIncrease;
         if (clickToPop == 0) {
-            Debug.Log("the balloon has popped");
+            //Debug.Log("the balloon has popped");
             scoreManager.IncreaseScoreText(ScoreToGive);
-
             Destroy(gameObject);
         }
     }

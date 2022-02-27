@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveDown : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,6 @@ public class MoveDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * Time.deltaTime);
+        transform.Translate(Vector3.down * Time.deltaTime * moveSpeed);
     }
 }

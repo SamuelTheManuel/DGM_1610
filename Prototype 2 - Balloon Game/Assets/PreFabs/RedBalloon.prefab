@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8756581814859388476}
   - component: {fileID: 2217565183355158469}
   - component: {fileID: 2918159955461125889}
+  - component: {fileID: 6588255815931755379}
+  - component: {fileID: 2012766492965853022}
   m_Layer: 0
   m_Name: RedBalloon
   m_TagString: Untagged
@@ -96,6 +98,35 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6588255815931755379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208814157677623970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb0c3dca501ea449b8a6f8bcc15a230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreToGive: 300
+  clickToPop: 3
+  scaleToIncrease: 0.25
+  scoreManager: {fileID: 0}
+--- !u!114 &2012766492965853022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208814157677623970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b9ec887417bfb4e91f828df6af4213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!1 &1987079429854725334
 GameObject:
   m_ObjectHideFlags: 0

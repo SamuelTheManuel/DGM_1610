@@ -19,6 +19,11 @@ public class ScoreManager : MonoBehaviour
     {
         
     }
+    public void DecreaseScoreText(int amount) {
+        score -= amount;
+        UpdateScoreText();
+    }
+
     public void IncreaseScoreText(int amount) {
         score += amount;
         UpdateScoreText();
