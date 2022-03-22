@@ -4,12 +4,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header ("Player Health")]
+    public int curHP;
+    public int maxHP;
 
+
+
+
+
+
+
+    [Header ("Player Movement")]
     public float moveSpeed = 5f; //speed at which the player moves
 
     private Rigidbody2D rb; // store the reference 2D rigidbody
 
     Vector2 movement; //store the players x,y position for movement
+
+    [Header ("Player Combat")]
+    public int damage;
+    public float attackRange; // ranmge at which the player can attack
+    public float attackRate;
+    private float lastAttackTime;
+    public LayerMask EnemyLayer;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +48,25 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate(){
         //apply physics and move character
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+    }
+
+    void Attack() {
+        lastAttackTime = Time.time;
+        //raycast using the enemyLayer
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, facingDirection, attackRange, EnemyLayer);
+
+        if(hit.collider != null) {
+            hit.collider.GetComponent<Enemy>()?.TakeDamage(damage);
+            
+
+    
+        }
+    }
+    public void TakeDamage(int damage) {
+        curHP -=damage;
+    }
+    void Die() {
+        Debug.Log("You Died");
     }
 }
