@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb; // store the reference 2D rigidbody
 
-    Vector2 movement; //store the players x,y position for movement
+    private Vector2 movement; //store the players x,y position for movement
+    private Vector2 direction;
 
     [Header ("Player Combat")]
     public int damage;
@@ -43,18 +44,32 @@ public class PlayerController : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal"); // input for left right movement
         movement.y = Input.GetAxis("Vertical"); // input for up down movement
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Time.time - lastAttackTime >= attackRate)  {
+                Attack();
+            }
+        }
     
     }
     void FixedUpdate(){
         //apply physics and move character
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+        UpdateDirection();
     }
 
+    void UpdateDirection() {
+        Vector2 vel = new Vector2(movement.x, movement.y);
+        if(vel.magnitude != 0) {
+            direction = vel;
+        }
+        rb.velocity = vel * moveSpeed;
+
+    }
     void Attack() {
         lastAttackTime = Time.time;
         //raycast using the enemyLayer
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, facingDirection, attackRange, EnemyLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackRange, EnemyLayer);
 
         if(hit.collider != null) {
             hit.collider.GetComponent<Enemy>()?.TakeDamage(damage);
@@ -65,6 +80,9 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage(int damage) {
         curHP -=damage;
+        if (curHP <= 0) {
+            Die();
+        }
     }
     void Die() {
         Debug.Log("You Died");
