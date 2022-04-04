@@ -7,9 +7,15 @@ public class Switches : MonoBehaviour
     public string npcConv;
     public int lvl;
     public float money;
-    public string gender;
+    public string height;
     public int socialClass;
-    //public int socialClass = 3;
+    public int width;
+    public string firstName;
+    public bool isOpen;
+    public int exp;
+    public string response;
+
+    
 
 
     //FOR HOMEWORK YOU NEED 10 SWITCHES CHECKING 10 DIFFERENT VARIABLES, NOT JUST 10 CASES, 4-5 CASES PER SWITCH
@@ -27,7 +33,44 @@ public class Switches : MonoBehaviour
             break;
     
         }
-        /*
+        
+        switch (lvl) {
+            case 1:
+            print("you are a noob");
+            break;
+            case 2:
+            print("You are less of a noob");
+            break;
+        }
+        switch(money) {
+            case 0:
+            print("YOU are broke");
+            break;
+            case 1000:
+            print("You have enough money for now");
+            break;
+        }
+        switch(height) {
+            case "0":
+            print("YOu are impossibly short");
+            break;
+            case "4":
+            print("You are a good size for a dwarf");
+            break;
+            case"7":
+            print("Doorways must be a pain for you, huh?");
+            break;
+
+        }
+        switch (width) {
+            case 50:
+            print("YOu are too wide to fit");
+            break;
+            case 25:
+            print("you should squeexe through just fine");
+            break;
+        }
+
         switch (socialClass) {
             case 5:
             Debug.Log("Hello, You're Majesty");
@@ -35,22 +78,41 @@ public class Switches : MonoBehaviour
             case 4:
             Debug.Log("Hello young Princess!");
             break;
-            case 3:
-            Debug.Log("Good evening Duke");
+
+        }
+        switch (firstName) {
+            case "Sam":
+            print("Your first name is Sam");
             break;
-            case 2:
-            Debug.Log("good evening landowner");
+            case "Bill":
+            print("Your first name is Bill");
             break;
-            case 1:
-            Debug.Log("hello peasant");
+        
+        }
+        switch (isOpen) {
+            case true:
+            print("The door is open");
             break;
-            case 0:
-            Debug.Log("ARREST THAT MAN!");
-            break;
-            default:
-            Debug.Log("I do not talk with strangers");
+            case false:
+            print("the door is closed");
             break;
         }
-        */
+        switch (exp) {
+            case 100:
+            print ("you can level up now");
+            break;
+            default:
+            print("you cannot level up yet");
+            break;
+        }
+        switch (response) {
+            case "i will fight":
+            print("great, we need the help we can get");
+            break;
+            case "not today":
+            print("well thanks for nothing");
+            break;
+        }
+        
     }
 }
