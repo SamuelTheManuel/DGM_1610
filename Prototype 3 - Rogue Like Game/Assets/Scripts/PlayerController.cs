@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [Header ("Player Health")]
     public int curHP;
     public int maxHP;
+    public HealthBar healthbar;
+
 
 
 
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        curHP = maxHP;
+        healthbar.SetHealth(maxHP);
 
     }
 
@@ -80,6 +84,7 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage(int damage) {
         curHP -=damage;
+        healthbar.SetHealth(curHP);
         if (curHP <= 0) {
             Die();
         }
