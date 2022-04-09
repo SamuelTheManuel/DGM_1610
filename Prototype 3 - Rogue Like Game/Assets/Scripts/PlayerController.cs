@@ -31,8 +31,10 @@ public class PlayerController : MonoBehaviour
     private float lastAttackTime;
     public LayerMask EnemyLayer;
 
-
-
+    [Header ("Inventory")]
+    public int key;
+    public int coins;
+    public int gems;
 
     // Start is called before the first frame update
     void Start()
