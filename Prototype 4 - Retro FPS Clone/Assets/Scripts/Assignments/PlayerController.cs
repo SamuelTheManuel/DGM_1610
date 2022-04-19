@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
                 if(Physics.Raycast(ray, out hit)) {
                     //hey you are hitting something
                     Debug.Log("i'm looking at " + hit.transform.name);
-                    Instantiate(bulletImpact, hit.point, hit.transform.rotation);
+                    Instantiate(bulletImpact, hit.point, transform.rotation);
                 }
                 else {
                     Debug.Log("Raycast isnt hitting anything");
