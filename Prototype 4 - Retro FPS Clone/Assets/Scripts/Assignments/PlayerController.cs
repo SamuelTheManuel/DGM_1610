@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
 
+     public TextMeshProUGUI ui;
     public static PlayerController instance;
     public float moveSpeed = 10f;
     private Rigidbody rb;
@@ -14,8 +16,9 @@ public class PlayerController : MonoBehaviour
     public float mouseSensitivity = 1.0f;
 
     public Camera viewCam;
-
+    [Header ("Effects")]
     public GameObject bulletImpact;
+    //public GameObject MuzzleFlash;
     public int currentAmmo = 10;
     private void Awake() {
         instance = this;
@@ -28,7 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //hide and lock cursor
+        ui.text = "Ammo: " + currentAmmo;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -47,16 +50,26 @@ public class PlayerController : MonoBehaviour
             if (currentAmmo > 0) {
                 Ray ray = viewCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
                 RaycastHit hit;
+                
+                
                 if(Physics.Raycast(ray, out hit)) {
                     //hey you are hitting something
                     Debug.Log("i'm looking at " + hit.transform.name);
-                    Instantiate(bulletImpact, hit.point, transform.rotation);
+                    Instantiate(bulletImpact, hit.point, hit.transform.rotation);
                 }
                 else {
                     Debug.Log("Raycast isnt hitting anything");
                 }
                 currentAmmo --;
+                //UpdateAmmo(currentAmmo);
+                ui.text = "Ammo: " + currentAmmo;
+
+
+
             }
         }
     }
+    // void UpdateAmmo(int currammo) {
+    //     ui.text = "Ammo: " + currammo;
+    // }
 }
