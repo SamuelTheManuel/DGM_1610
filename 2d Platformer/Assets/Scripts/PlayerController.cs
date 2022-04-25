@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-     void FixedUpdate()
+     void Update()
     {
         //non stick player
         moveVelocity = 0f;
@@ -45,11 +45,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveVelocity, rb.velocity.y);
     }
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
 
 
-    }
+    // }
     public void Jump() {
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
     }
