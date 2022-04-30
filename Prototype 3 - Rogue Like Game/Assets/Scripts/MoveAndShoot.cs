@@ -22,13 +22,12 @@ public class MoveAndShoot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(Vector2.Distance(transform.position, target.position) > stopDistance) {//advances
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+    void Update() {
+        // if(Vector2.Distance(transform.position, target.position) > stopDistance) {//advances
+        //     transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-        }
-        else if(Vector2.Distance(transform.position, target.position) < stopDistance && Vector2.Distance(transform.position, target.position) > retreatDistance){
+        // }
+        if(Vector2.Distance(transform.position, target.position) < stopDistance && Vector2.Distance(transform.position, target.position) > retreatDistance){
             transform.position = this.transform.position;
         }
         else if(Vector2.Distance(transform.position, target.position) < retreatDistance) {//movesback

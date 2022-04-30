@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public enum PickupType {Key, Coin};
+    public enum PickupType {Key, Coin, Health};
     public PickupType currentPickup;
     public int pickupAmount;
 
@@ -33,10 +33,11 @@ public class Pickup : MonoBehaviour
 
             Debug.Log("You have picked up " + pickupAmount + " coins!");
             break;
-            // case PickupType.Health:
-            // playerController.curHP += pickupAmount;
-            // Debug.Log("You picked up " + pickupAmount + " health!");
-            // break;
+            case PickupType.Health:
+            playerController.heal(pickupAmount);
+
+            Debug.Log("You picked up " + pickupAmount + " health!");
+            break;
             }
             Destroy(gameObject);
 

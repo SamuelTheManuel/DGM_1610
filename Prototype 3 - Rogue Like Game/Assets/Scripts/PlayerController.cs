@@ -14,15 +14,7 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthbar;
     public TextMeshProUGUI coinUI;
     public TextMeshProUGUI keyUI;
-
-
-
-
-
-
-
-
-
+    public Transform spawn;
 
     [Header ("Player Movement")]
     public float moveSpeed = 5f; //speed at which the player moves
@@ -49,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         curHP = maxHP;
-        healthbar.SetHealth(maxHP);
+        healthbar.SetHealth(curHP);
         source = GetComponent<AudioSource>();
 
     }
@@ -120,5 +112,8 @@ public class PlayerController : MonoBehaviour
     }
     void Die() {
         Debug.Log("You Died");
+        transform.position = spawn.position;
+        curHP = maxHP;
+        healthbar.SetHealth(curHP);
     }
 }

@@ -13,12 +13,14 @@ public class Enemy : MonoBehaviour
     public float attackRange;
     public float attackRate;
     private float lastAttackTime;
+    public float range = 5.0f; //aggro range
+    public float speed = 2.0f;
     public PlayerController player;
     [Header ("Drops")]
     public GameObject lootDrop;
     public int healAmount = 4;
 
-    public GameObject healthDrop;
+    //public GameObject healthDrop;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,9 @@ public class Enemy : MonoBehaviour
         if (Time.time - lastAttackTime >= attackRate && Vector2.Distance(transform.position, player.transform.position) < attackRange) {
             Attack();
         }
+        if (Vector2.Distance(transform.position, player.transform.position) < range) {//aggro range
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        } 
     }
     public void TakeDamage(int damage) {
         currHP -= damage;
@@ -55,6 +60,6 @@ public class Enemy : MonoBehaviour
     }
     void LootDrop() {
         Instantiate(lootDrop, transform.position, Quaternion.identity);
-        Instantiate(healthDrop, transform.position, Quaternion.identity);
+        //Instantiate(healthDrop, transform.position, Quaternion.identity);
     }
 }

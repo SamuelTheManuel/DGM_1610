@@ -148,7 +148,7 @@ MonoBehaviour:
   speed: 2
   stopDistance: 5
   retreatDistance: 3
-  startDelay: 2
+  startDelay: 1
   projectile: {fileID: 8674642151039782689, guid: 68eb54b534b8baf43b264dd121660455, type: 3}
 --- !u!114 &7262439858025776516
 MonoBehaviour:
@@ -167,6 +167,8 @@ MonoBehaviour:
   damage: 0
   attackRange: 5
   attackRate: 1
+  range: 0
+  speed: 2
   player: {fileID: 0}
   lootDrop: {fileID: 3472273415793060432, guid: 00eae35492678764193cfa2716d288ee, type: 3}
   healAmount: 2
