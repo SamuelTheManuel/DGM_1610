@@ -16,7 +16,9 @@ public class Enemy : MonoBehaviour
     public PlayerController player;
     [Header ("Drops")]
     public GameObject lootDrop;
+    public int healAmount = 4;
 
+    public GameObject healthDrop;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +49,12 @@ public class Enemy : MonoBehaviour
     }
 
     void Die() {
-
+        player.heal(healAmount);
         Destroy(gameObject);
 
     }
     void LootDrop() {
         Instantiate(lootDrop, transform.position, Quaternion.identity);
+        Instantiate(healthDrop, transform.position, Quaternion.identity);
     }
 }

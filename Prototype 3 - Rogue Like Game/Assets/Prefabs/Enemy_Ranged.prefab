@@ -164,8 +164,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHP: 5
   maxHP: 5
-  damage: 2
+  damage: 0
   attackRange: 5
   attackRate: 1
   player: {fileID: 0}
-  lootDrop: {fileID: 0}
+  lootDrop: {fileID: 3472273415793060432, guid: 00eae35492678764193cfa2716d288ee, type: 3}
+  healAmount: 2
+  healthDrop: {fileID: 5407182202289047155, guid: 00440a38527b0b042a5db8e4458e67f8, type: 3}

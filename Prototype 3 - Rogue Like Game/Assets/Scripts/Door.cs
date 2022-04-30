@@ -13,7 +13,9 @@ public class Door : MonoBehaviour
 
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player") && playerController.key == 1) {
+        if (other.CompareTag("Player") && playerController.key >= 1) {
+            playerController.key -= 1;
+            playerController.UpdateInv();
             Debug.Log("The door has opened");
             Destroy(gameObject);
         }

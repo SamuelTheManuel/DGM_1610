@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public AudioClip clip;
+    private AudioSource source;
     [Header ("Player Health")]
     public int curHP;
     public int maxHP;
     public HealthBar healthbar;
+    public TextMeshProUGUI coinUI;
+    public TextMeshProUGUI keyUI;
+
+
 
 
 
@@ -30,11 +38,11 @@ public class PlayerController : MonoBehaviour
     public float attackRate;
     private float lastAttackTime;
     public LayerMask EnemyLayer;
+    public GameObject projectile;
 
     [Header ("Inventory")]
     public int key;
     public int coins;
-    public int gems;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +50,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         curHP = maxHP;
         healthbar.SetHealth(maxHP);
+        source = GetComponent<AudioSource>();
 
     }
 
@@ -76,9 +85,15 @@ public class PlayerController : MonoBehaviour
         //raycast using the enemyLayer
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackRange, EnemyLayer);
-
+        //Instantiate(projectile, transform.position, Quaternion.identity);
+        source.PlayOneShot(clip);
         if(hit.collider != null) {
             hit.collider.GetComponent<Enemy>()?.TakeDamage(damage);
+            //instantiate the hit effect in the direction we were last looking
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            
+            
+            
             
 
     
@@ -90,6 +105,18 @@ public class PlayerController : MonoBehaviour
         if (curHP <= 0) {
             Die();
         }
+    }
+    public void UpdateInv() {
+        keyUI.text = "Keys: " + key;
+        coinUI.text = "Coins: " + coins;
+    }
+    public void heal(int amount) {
+        
+        curHP += amount;
+        if (curHP > maxHP) {
+            curHP = maxHP;
+        }
+        healthbar.SetHealth(curHP);
     }
     void Die() {
         Debug.Log("You Died");

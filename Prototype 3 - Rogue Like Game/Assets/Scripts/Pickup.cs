@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public enum PickupType {Key, Coin, Gem};
+    public enum PickupType {Key, Coin};
     public PickupType currentPickup;
     public int pickupAmount;
 
     private PlayerController playerController;
 
+
     // Start is called before the first frame update
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -21,17 +23,20 @@ public class Pickup : MonoBehaviour
         if (other.CompareTag("Player")) {
             switch (currentPickup) {
             case PickupType.Key:
-            playerController.key = pickupAmount;
+            playerController.key = pickupAmount;//call update ui func
+            playerController.UpdateInv();
             Debug.Log("You have picked up a key");
             break;
             case PickupType.Coin:
             playerController.coins += pickupAmount;
+            playerController.UpdateInv();//call update ui func
+
             Debug.Log("You have picked up " + pickupAmount + " coins!");
             break;
-            case PickupType.Gem:
-            playerController.gems = pickupAmount;
-            Debug.Log("You picked up " + pickupAmount + " gem!");
-            break;
+            // case PickupType.Health:
+            // playerController.curHP += pickupAmount;
+            // Debug.Log("You picked up " + pickupAmount + " health!");
+            // break;
             }
             Destroy(gameObject);
 
