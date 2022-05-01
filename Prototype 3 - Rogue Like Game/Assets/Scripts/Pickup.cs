@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public enum PickupType {Key, Coin, Health};
+    public enum PickupType {Key, Coin, Health, BKey, PowerUp};
     public PickupType currentPickup;
     public int pickupAmount;
 
@@ -37,6 +37,13 @@ public class Pickup : MonoBehaviour
             playerController.heal(pickupAmount);
 
             Debug.Log("You picked up " + pickupAmount + " health!");
+            break;
+            case PickupType.BKey:
+            playerController.key += 2;
+            Debug.Log("You found the boss key");
+            break;
+            case PickupType.PowerUp:
+            playerController.damage += pickupAmount;
             break;
             }
             Destroy(gameObject);

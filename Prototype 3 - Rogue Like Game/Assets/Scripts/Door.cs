@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
         private PlayerController playerController;
+        public int numLocks = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +14,8 @@ public class Door : MonoBehaviour
 
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player") && playerController.key >= 1) {
-            playerController.key -= 1;
+        if (other.CompareTag("Player") && playerController.key >= numLocks) {
+            playerController.key -= numLocks;
             playerController.UpdateInv();
             Debug.Log("The door has opened");
             Destroy(gameObject);
