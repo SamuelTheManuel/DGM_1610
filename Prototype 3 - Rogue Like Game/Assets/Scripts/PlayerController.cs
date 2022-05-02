@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour
                 Attack();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
     
     }
     void FixedUpdate(){
